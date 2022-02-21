@@ -51,6 +51,10 @@ const UserSchema = new Schema(
 UserSchema.virtual('friendCount').get(function() {
   return this.friends.length;
 });
+// get total count of thoughts
+UserSchema.virtual('thoughtCount').get(function() {
+  return this.thoughts.length;
+});
 
 const User = model('User', UserSchema);
 

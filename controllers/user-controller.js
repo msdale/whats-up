@@ -38,8 +38,8 @@ const userController = {
         res.sendStatus(400);
       });
   },
-  // createUser
-  createUser({ body }, res) {
+  // create user
+  addUser({ body }, res) {
     User.create(body)
       .then(dbUserData => res.json(dbUserData))
       .catch(err => res.json(err));
@@ -60,7 +60,7 @@ const userController = {
       })
       .catch(err => res.json(err));
   },
-  // delete user
+
   deleteUser({ params }, res) {
     User.findOneAndDelete(
       { _id: params.id },
@@ -70,6 +70,19 @@ const userController = {
         if (!dbUserData) {
           res.status(404).json({ message: 'No user found with this id!' });
           return;
+        }
+        // loop through thoughts and delete each from thoughts collection
+        console.log(dbUserData);
+        for (let i = 0; i < dbUserData.thoughts.length; i++) {
+          console.log("IN LOOP " + dbUserData.thoughts[i] + " for index " + i);
+          Thought.findOneAndDelete({ _id: dbUserData.thoughts[i] })
+          .then(foundThought => {
+            if (!foundThought) {
+              res.status(404).json({ message: 'No thought found with this id!' });
+              return;
+            }
+          })
+          .catch(err => res.json(err));
         }
         res.json(dbUserData);
       })
