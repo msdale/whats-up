@@ -52,9 +52,9 @@ See the following demo to understand the functionality available through the RES
   
 (github link to mp4)  
   
-See the following demo to understand the functionality available through the REST API using the HTTP POST, PUT, and DELETE methods.
-
-(github link to mp4)
+See the following demos to understand the functionality available through the REST API using the HTTP POST, PUT, and DELETE methods.
+    
+(github link to mp4)  
 
 
 ## Questions
