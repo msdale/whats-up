@@ -19,7 +19,7 @@ Building a node-based social interaction blog using mongoDB (noSQL) and mongoose
 
 To install locally, clone this repository to your local environment.  This is a node application, so node must be installed.  mongoDB must also be installed locally.  For mongoDB documentation and installation instructions see https://docs.mongodb.com/manual/introduction/.  If you need to install node, check out this link  https://nodejs.org/en/download/.  Once mongoDB and node (and npm) are installed, attach to the repository root directory and update npm dependencies with the following command:
 
-*npm install express mongoose*  
+**npm install express mongoose**  
 
 See demo of the installation process below...  
 
