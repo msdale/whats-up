@@ -35,7 +35,7 @@ The node server will remain running in the terminal until it is terminated with 
   
 See the following demo for how to start the server...  
   
-(github link to mp4 goes here)  
+https://user-images.githubusercontent.com/90280725/155232751-45a57226-3b60-4221-bb7e-ab4cdb61dcd4.mp4  
   
 There are 2 mongoose models; "User" and "Thought", defined by their corresponding schemas. There is also a schema, "Reaction" that belongs to the "Thought" schema definition, and is stored as a sub-document in the "reactions" array of the "Thought" document. Here are the summarized definitions.
 1. The "User" model instantiates the "User" schema as a document collection whose documents can be (recursively) referenced in the "friends" array in the "User" document. 
