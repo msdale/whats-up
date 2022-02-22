@@ -28,7 +28,7 @@ See demo of the installation process below...
 
 ## Usage
   
-To bring up the mongoDB server, from the root directory of the repository clone, type the following:  
+To bring up the mongoDB server, from the root directory of the repository clone, in the command-line terminal type the following:  
   
 **npm start**  
   
