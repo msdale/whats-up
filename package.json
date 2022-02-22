@@ -20,6 +20,6 @@
   "homepage": "https://github.com/msdale/whats-up#readme",
   "dependencies": {
     "express": "^4.17.3",
-    "mongoose": "^6.2.2"
+    "mongoose": "^6.2.3"
   }
 }
