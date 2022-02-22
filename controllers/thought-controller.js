@@ -1,7 +1,7 @@
 const { Thought, User } = require('../models');
 
 const thoughtController = {
-    /**
+  /**
    * getAllThoughts() - GET http method that queries and returns all thoughts from mongoDB 
    * @param {*} req - request object (not used)
    * @param {*} res - response object (all users)
@@ -40,7 +40,7 @@ const thoughtController = {
       });
   },
 
-   /**
+  /**
    * addThought() - POST http method that inserts a new thought into mongoDB 
    * @param {*} body - sub-object containing user data payload, contained in request object
    * @param {*} res - response object

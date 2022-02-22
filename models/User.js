@@ -1,6 +1,13 @@
 const { Schema, model } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
+/**
+ * UserSchema
+ *   Modeled in mongoose, the primary collection containing...
+ *      - user locator data
+ *      - thoughts array (referencing Thought model)
+ *      - friends array (referencing User model)
+ */
 const UserSchema = new Schema(
   {
     username: {

@@ -1,6 +1,10 @@
 const { Schema, model, Types } = require('mongoose');
 const dateFormat = require('../utils/dateFormat');
 
+/**
+ * ReactionSchema
+ *   Managed as an array of sub-documents in the Thought model
+ */
 const ReactionSchema = new Schema(
   {
     // set custom id to avoid confusion with parent thought _id
@@ -34,6 +38,10 @@ const ReactionSchema = new Schema(
   }
 );
 
+/**
+ * ThoughtSchema
+ *   Modeled in mongoose and referenced by the User model 
+ */
 const ThoughtSchema = new Schema(
   {
     thoughtText: {
