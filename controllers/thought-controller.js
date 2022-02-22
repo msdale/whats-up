@@ -1,8 +1,11 @@
 const { Thought, User } = require('../models');
-const { db } = require('../models/User');
 
 const thoughtController = {
-  // get all thoughts
+    /**
+   * getAllThoughts() - GET http method that queries and returns all thoughts from mongoDB 
+   * @param {*} req - request object (not used)
+   * @param {*} res - response object (all users)
+   */ 
   getAllThoughts(req, res) {
     Thought.find({})
       .populate({
@@ -18,7 +21,11 @@ const thoughtController = {
       });
   },
 
-  // get one thought by id
+  /**
+   * getThoughtById() - GET http method that queries and returns single thought by thought id
+   * @param {*} params - sub-object containing URL parameters, contained in request object
+   * @param {*} res - response object 
+   */
   getThoughtById({ params }, res) {
     Thought.findOne({ _id: params.id })
       .populate({
@@ -33,6 +40,11 @@ const thoughtController = {
       });
   },
 
+   /**
+   * addThought() - POST http method that inserts a new thought into mongoDB 
+   * @param {*} body - sub-object containing user data payload, contained in request object
+   * @param {*} res - response object
+   */
   addThought({ body }, res) {
     Thought.create(body)
       .then(({ _id }) => {
@@ -52,7 +64,13 @@ const thoughtController = {
       .catch(err => res.json(err));
   },
 
-  // add reaction to thought
+  /**
+   * addReaction() - PUT http method that modifies thought document reactions array in mongoDB 
+   * @param {*} params, body - are sub-objects contained in the request object...
+   *                           params - sub-object containing URL parameter for thoughtId...
+   *                           body - data payload to update the reactions array  
+   * @param {*} res - response object
+   */
   addReaction({ params, body }, res) {
     Thought.findOneAndUpdate(
       { _id: params.thoughtId },
@@ -69,7 +87,13 @@ const thoughtController = {
       .catch(err => res.json(err));
   },
 
-  // update thought by id
+  /**
+   * updateThought() - PUT http method that modifies thought data in mongoDB 
+   * @param {*} params, body - are sub-objects contained in the request object...
+   *                           params - sub-object containing URL parameter thoughtId...
+   *                           body - data payload to update the thought document  
+   * @param {*} res - response object
+   */
   updateThought({ params, body }, res) {
     Thought.findOneAndUpdate(
       { _id: params.id },
@@ -86,7 +110,12 @@ const thoughtController = {
       .catch(err => res.json(err));
   },
 
-  // remove thought
+  /**
+   * removeThought() - DELETE http method for removing a thoughtt from mongoDB...
+   *                Also deletes any thought the same thought referenced in the thoughts array in user collection 
+   * @param {*} params - sub-object containing URL parameter id (thoughtId), contained in request object
+   * @param {*} res - response object
+   */  
   removeThought({ params }, res) {
     // get the thought data
     Thought.findOneAndDelete({ _id: params.id })
@@ -102,7 +131,13 @@ const thoughtController = {
       .catch(err => res.json(err));
   },
 
-  // remove reaction
+  /**
+   * removeReaction() - PUT http method that modifies thought document reactions array in mongoDB 
+   * @param {*} params - sub-object containing URL parameter thoughtId and reactionId...
+   *                     locates the thought document and removes the reaction (by reactionId)...
+   *                     from the reactions array  
+   * @param {*} res - response object
+   */
   removeReaction({ params }, res) {
     Thought.findOneAndUpdate(
       { _id: params.thoughtId },

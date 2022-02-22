@@ -1,7 +1,11 @@
 const { User, Thought } = require('../models');
 
 const userController = {
-  // get all users 
+  /**
+   * getAllUsers() - GET http method that queries and returns all users from mongoDB 
+   * @param {*} req - request object (not used)
+   * @param {*} res - response object (all users)
+   */ 
   getAllUsers(req, res) {
     User.find({})
       .populate({
@@ -20,7 +24,12 @@ const userController = {
         res.sendStatus(400);
       });
   },
-  // get one user by id
+  
+  /**
+   * getUserById() - GET http method that queries and returns single user by user id
+   * @param {*} params - sub-object containing URL parameters, contained in request object
+   * @param {*} res - response object 
+   */
   getUserById({ params }, res) {
     User.findOne({ _id: params.id })
       .populate({
@@ -38,13 +47,25 @@ const userController = {
         res.sendStatus(400);
       });
   },
-  // create user
+  
+  /**
+   * addUser() - POST http method that inserts a new user into mongoDB 
+   * @param {*} body - sub-object containing user data payload, contained in request object
+   * @param {*} res - response object
+   */
   addUser({ body }, res) {
     User.create(body)
       .then(dbUserData => res.json(dbUserData))
       .catch(err => res.json(err));
   },
-  // update User by id
+  
+  /**
+   * updateUser() - PUT http method that modifies user data in mongoDB 
+   * @param {*} params, body - are sub-objects contained in the request object...
+   *                           params - sub-object containing URL parameters...
+   *                           body - data payload to update the user  
+   * @param {*} res - response object
+   */
   updateUser({ params, body }, res) {
     User.findOneAndUpdate(
       { _id: params.id },
@@ -61,6 +82,12 @@ const userController = {
       .catch(err => res.json(err));
   },
 
+  /**
+   * deleteUser() - DELETE http method for removing a user from mongoDB...
+   *                Also deletes any associated thoughts from thought collection 
+   * @param {*} params - sub-object containing URL parameter id (userId), contained in request object
+   * @param {*} res - response object
+   */
   deleteUser({ params }, res) {
     User.findOneAndDelete(
       { _id: params.id },
@@ -71,24 +98,23 @@ const userController = {
           res.status(404).json({ message: 'No user found with this id!' });
           return;
         }
-        // loop through thoughts and delete each from thoughts collection
+        // loop through thoughts and delete each from thought collection
         console.log(dbUserData);
         for (let i = 0; i < dbUserData.thoughts.length; i++) {
           console.log("IN LOOP " + dbUserData.thoughts[i] + " for index " + i);
           Thought.findOneAndDelete({ _id: dbUserData.thoughts[i] })
-          .then(foundThought => {
-            if (!foundThought) {
-              res.status(404).json({ message: 'No thought found with this id!' });
-              return;
-            }
-          })
           .catch(err => res.json(err));
         }
         res.json(dbUserData);
       })
       .catch(err => res.json(err));
   },
-  // add friend
+  
+  /**
+   * addFriend() - PUT http method that adds to the friends (user documents) array
+   * @param {*} params - sub-object containing URL parameter userId and friendId, contained in request object
+   * @param {*} res - response object
+   */
   addFriend({ params }, res) {
     User.findOneAndUpdate(
       { _id: params.userId },
@@ -104,7 +130,12 @@ const userController = {
       })
       .catch(err => res.json(err));
   },
-  // delete friend
+
+  /**
+   * deleteFriend() - PUT http method that remove user document from the friends array
+   * @param {*} params - sub-object containing URL parameters userId and friendId, contained in request object
+   * @param {*} res - response object
+   */
   deleteFriend({ params }, res) {
     User.findOneAndUpdate(
       { _id: params.userId },
