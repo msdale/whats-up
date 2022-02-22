@@ -30,7 +30,7 @@ See demo of the installation process below...
   
 To bring up the mongoDB server, from the root directory of the repository clone, type the following:  
   
-*npm start*  
+**npm start**  
   
 The node server will remain running in the terminal until it is terminated with a CTRL-C keystroke.  
   
