@@ -40,13 +40,13 @@ See the following demo for how to start the server...
   
 There are 2 mongoose models; "User" and "Thought", defined by their corresponding schemas. There is also a schema, "Reaction" that belongs to the "Thought" schema definition, and is stored as a sub-document in the "reactions" array of the "Thought" document. Here are the summarized definitions.
 1. The "User" model instantiates the "User" schema as a document collection whose documents can be (recursively) referenced in the "friends" array in the "User" document. 
-2. The "Thought" model instantiates the "Thought" schema as a document collection whose documents can also be referenced in the "User" documents in the embedded array "thoughts". The "Thought" document also contains the array "reactions" which stores sub-documents defined by the "Reactions" schema. 
+2. The "Thought" model instantiates the "Thought" schema as a document collection whose documents can also be referenced in the "User" document in the array "thoughts". The "Thought" document also contains the array "reactions" which stores sub-documents defined by the "Reactions" schema. 
    
-Summary of Collections:  
-* User (contains reference to "Thought" and "User" in thoughts and friends arrays)  
-* Thought (contains reference to "Reaction" in reactions array)  
+Summary of Collections Associations:  
+* User (contains reference to "Thought" in "thoughts" array, and contains reference to "User" in "friends" array)  
+* Thought (contains reference to "Reaction" in "reactions" array)  
   
-This server uses the Express server, mongoDB and the mongoose ODM to manage and manipulate data stored in a mongoDB database instance.
+This server uses the Express server, mongoDB and the mongoose ODM to manage and manipulate data stored in the mongoDB database instance.
 
 See the following demo to understand the functionality available through the REST API using the HTTP GET method.
   
