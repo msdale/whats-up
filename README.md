@@ -24,7 +24,11 @@ To install locally, clone this repository to your local environment.  This is a 
 See demo of the installation process below...  
   
 https://user-images.githubusercontent.com/90280725/155230378-74e5330a-6082-4bf0-9a47-9670f821be6e.mp4  
+  
+
 <br/><br/>
+  
+
 ## Usage
   
 To bring up the mongoDB server, from the root directory of the repository clone, in the command-line terminal type the following:  
