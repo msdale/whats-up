@@ -124,6 +124,12 @@ const thoughtController = {
           res.status(404).json({ message: 'No thought found with this id!' });
           return;
         }
+        User.findOneAndUpdate(
+          { username: foundThought.username },
+          { $pull: { thoughts: foundThought._id } },
+          { new: true }
+        )
+        .catch(err => res.json(err));
         res.json(foundThought);
         return foundThought;
       })

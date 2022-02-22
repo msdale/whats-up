@@ -48,12 +48,28 @@ Summary of Collections Associations:
   
 This server uses the Express server, mongoDB and the mongoose ODM to manage and manipulate data stored in the mongoDB database instance.
 
-See the following demo to understand the functionality available through the REST API using the HTTP GET method.
+See the following demo to understand the functionality available through the REST API using the HTTP GET method for all User(s) and all Thought(s).  
   
 (github link to mp4)  
+
+See the following demo to understand the functionality available through the REST API using the HTTP GET method for single User and single Thought.  
   
-See the following demos to understand the functionality available through the REST API using the HTTP POST, PUT, and DELETE methods.
+(github link to mp4)  
+
+See the following demo to understand the functionality available through the REST API using the HTTP POST, PUT, and DELETE methods for a User.  
     
+(github link to mp4)  
+
+See the following demo to understand the functionality available through the REST API using the HTTP POST, PUT, and DELETE methods for a Thought.  
+
+(github link to mp4)  
+
+See the following demo to understand the functionality available through the REST API using the HTTP POST and DELETE methods for friends.  
+
+(github link to mp4)  
+
+See the following demo to understand the functionality available through the REST API using the HTTP POST and DELETE methods for reactions (to thoughts).  
+
 (github link to mp4)  
 
 
