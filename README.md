@@ -24,7 +24,7 @@ To install locally, clone this repository to your local environment.  This is a 
 See demo of the installation process below...  
   
 https://user-images.githubusercontent.com/90280725/155230378-74e5330a-6082-4bf0-9a47-9670f821be6e.mp4  
-
+<br/><br/>
 ## Usage
   
 To bring up the mongoDB server, from the root directory of the repository clone, in the command-line terminal type the following:  
@@ -37,6 +37,7 @@ See the following demo for how to start the server...
   
 https://user-images.githubusercontent.com/90280725/155232751-45a57226-3b60-4221-bb7e-ab4cdb61dcd4.mp4  
   
+<br/><br/>
 
 
 There are 2 mongoose models; "User" and "Thought", defined by their corresponding schemas. There is also a schema, "Reaction" that belongs to the "Thought" schema definition, and is stored as a sub-document in the "reactions" array of the "Thought" document. Here are the summarized definitions.
@@ -54,35 +55,41 @@ See the following demo to understand the functionality available through the RES
   
 https://user-images.githubusercontent.com/90280725/155230652-50418762-ef3e-4f9b-a510-caf2880a3f04.mp4  
   
+<br/><br/>
 
   
 See the following demo to understand the functionality available through the REST API using the HTTP GET method for single User and single Thought.  
   
 https://user-images.githubusercontent.com/90280725/155230772-e25faf27-2a14-4496-a8cd-dfe4119f2b5a.mp4  
   
+<br/><br/>
 See the following demo to understand the functionality available through the REST API using the HTTP POST, PUT, and DELETE methods for a User.  
   
 https://user-images.githubusercontent.com/90280725/155230920-c5aa8522-e086-45db-b965-d378a4ce9f41.mp4  
   
 
+<br/><br/>
 
 See the following demo to understand the functionality available through the REST API using the HTTP POST, PUT, and DELETE methods for a Thought.  
   
 https://user-images.githubusercontent.com/90280725/155231042-a2e4bf2b-7f84-4c66-8f90-6a500849290f.mp4  
   
 
+<br/><br/>
 
 See the following demo to understand the functionality available through the REST API using the HTTP POST and DELETE methods for friends.  
   
 https://user-images.githubusercontent.com/90280725/155231140-45af1d00-b29d-4bd3-9adc-77b9a2932cc2.mp4  
   
 
+<br/><br/>
 
 See the following demo to understand the functionality available through the REST API using the HTTP POST and DELETE methods for reactions (to thoughts).  
   
 https://user-images.githubusercontent.com/90280725/155231244-0df6297a-869c-4e38-9df9-9dc0b629f17b.mp4  
 
 
+<br/><br/>
 
 
 ## Questions
